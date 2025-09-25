@@ -5,36 +5,36 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | InteractiveVideos</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <style>
-  /* Make the container fill the screen on all devices and carry the background */
-  html, body { height: 100%; }
+   <link rel="stylesheet" href="TemplateData/style.css">
+
+<style>
+  html, body { height: 100%; margin: 0; }
+  /* Full-screen container with your background */
   #unity-container {
-    position: fixed; inset: 0;               /* full-screen */
+    position: fixed; inset: 0;
     display: flex; align-items: center; justify-content: center;
-    background: url('TemplateData/focused-bg.png') center / cover no-repeat; /* <-- your background */
+    background: url('TemplateData/focused-bg.png') center / cover no-repeat;
   }
 
-  /* Keep canvas centered on desktop; mobile already stretches via .unity-mobile */
-  .unity-desktop #unity-canvas { box-shadow: 0 0 0; }  /* optional: remove glow */
+  /* Optional desktop tweak */
+  .unity-desktop #unity-canvas { box-shadow: 0 0 0; }
 
-  /* Replace the Unity cube with your logo (keep same DOM id) */
+  /* Make canvas transparent so the bg shows */
+  #unity-canvas { background: transparent !important; }
+
+  /* Replace Unity cube logo with yours (same DOM id) */
   #unity-logo {
-    width: 260px; height: 260px;             /* adjust as you like */
-    background: url('TemplateData/focused-logo.png') no-repeat center / contain; /* <-- your logo */
-    margin: 0 auto;
+    width: 260px; height: 260px;
+    background: url('TemplateData/focused-logo.png') no-repeat center / contain;
+    margin: 0 auto 18px;
   }
 
-  /* Logo spacing above bar (tweak this to match your mock) */
-  #unity-logo{ margin: 0 auto 18px; }
-
-  /* Make sure any template images don’t leak through */
+  /* Prevent template images from bleeding through if they were set */
   #unity-progress-bar-empty,
-  #unity-progress-bar-full{ background-image:none !important; }
+  #unity-progress-bar-full { background-image: none !important; }
 
-  /* Small phones */
-  @media (max-width:420px){
-    #unity-progress-bar-empty{ width:280px; }
+  @media (max-width: 420px) {
+    #unity-progress-bar-empty { width: 280px; }
   }
 </style>
   </head>
