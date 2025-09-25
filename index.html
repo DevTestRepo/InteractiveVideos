@@ -25,56 +25,6 @@
     margin: 0 auto;
   }
 
-  /* Center the loading bar + logo stack nicely */
-  #unity-loading-bar {
-    position: absolute; left: 50%; top: 50%;
-    transform: translate(-50%, -50%);
-    display: block;                           /* force visible while loading */
-    text-align: center;
-  }
-
-  #unity-progress-bar-empty{
-    position: relative;
-    width: 320px;               /* adjust to taste */
-    height: 22px;               /* outer track height */
-    margin: 24px auto 0;
-    background: transparent;    /* override template image */
-    border: 2px solid rgba(255,255,255,0.92);
-    border-radius: 14px;
-    box-sizing: border-box;
-  }
-
-  /* Inner “base” pill behind the fill (no extra DOM needed) */
-  #unity-progress-bar-empty::after{
-    content:"";
-    position:absolute;
-    left:6px; right:6px;        /* inset inside the border */
-    top:6px;
-    height:10px;                /* inner pill height */
-    background: rgba(255,255,255,0.35);
-    border-radius: 999px;
-  }
-
-  /* --- Progress bar: fill --- */
-  #unity-progress-bar-full{
-    position:absolute;
-    left:6px;                   /* match ::after inset */
-    top:6px;
-    height:10px;                /* match ::after height */
-    width:0%;
-    background: rgba(255,255,255,0.96);
-    border-radius: 999px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.12), inset 0 -1px 0 rgba(0,0,0,0.08);
-    transition: width 0.18s linear;
-  }
-
-  /* Keep loading UI centered and visible */
-  #unity-loading-bar{
-    position:absolute; left:50%; top:50%;
-    transform:translate(-50%,-50%);
-    display:block; text-align:center;
-  }
-
   /* Logo spacing above bar (tweak this to match your mock) */
   #unity-logo{ margin: 0 auto 18px; }
 
