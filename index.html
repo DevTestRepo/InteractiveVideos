@@ -6,6 +6,60 @@
     <title>Unity WebGL Player | InteractiveVideos</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+    <style>
+  /* Make the container fill the screen on all devices and carry the background */
+  html, body { height: 100%; }
+  #unity-container {
+    position: fixed; inset: 0;               /* full-screen */
+    display: flex; align-items: center; justify-content: center;
+    background: url('TemplateData/focused-bg.png') center / cover no-repeat; /* <-- your background */
+  }
+
+  /* Keep canvas centered on desktop; mobile already stretches via .unity-mobile */
+  .unity-desktop #unity-canvas { box-shadow: 0 0 0; }  /* optional: remove glow */
+
+  /* Replace the Unity cube with your logo (keep same DOM id) */
+  #unity-logo {
+    width: 260px; height: 260px;             /* adjust as you like */
+    background: url('TemplateData/focused-logo.png') no-repeat center / contain; /* <-- your logo */
+    margin: 0 auto;
+  }
+
+  /* Center the loading bar + logo stack nicely */
+  #unity-loading-bar {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;                           /* force visible while loading */
+    text-align: center;
+  }
+
+  /* Re-skin progress bar without changing its structure */
+  #unity-progress-bar-empty {
+    width: 300px; height: 14px;
+    margin: 16px auto 0;
+    background: rgba(255,255,255,0.15);
+    border: 2px solid rgba(255,255,255,0.85);
+    border-radius: 10px;
+  }
+  #unity-progress-bar-full {
+    width: 0%; height: 100%;
+    background: rgba(255,255,255,0.95);
+    border-radius: 8px;
+    transition: width 0.2s linear;
+  }
+
+  /* Hide the bottom footer during loading on mobile and desktop */
+  #unity-footer { display: none; }
+
+  /* Make the canvas background transparent during the splash (your bg shows) */
+  #unity-canvas { background: transparent; }
+
+  /* Optional: tweak for small phones */
+  @media (max-width: 420px) {
+    #unity-logo { width: 180px; height: 180px; }
+    #unity-progress-bar-empty { width: 240px; }
+  }
+</style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
